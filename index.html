@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+/* ============ SITE ============ */
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Portfólio | Patrick Santos</title>
+<meta name="description" content="Portfólio profissional — Marketing, Experiência do Cliente e Tecnologia.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+
+/* ============ CSS ============ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+:root{
+  --bg:#0a0a0a;
+  --bg-alt:#0e0e0e;
+  --surface:#161616;
+  --surface-2:#1c1c1c;
+  --border:#2a2a2a;
+  --border-soft:#232323;
+  --gray:#8f8f8f;
+  --gray-light:#c9c9c9;
+  --white:#f5f5f5;
+  --orange:#ff6a1a;
+  --orange-2:#ff8c3d;
+  --orange-glow:rgba(255,106,26,.45);
+  --orange-glow-soft:rgba(255,106,26,.15);
+  --radius:14px;
+  --maxw:1180px;
+  --nav-h:76px;
+}
+
+body{
+  background:var(--bg);
+  color:var(--gray-light);
+  font-family:'Montserrat',sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(255,106,26,0.07), transparent 40%),
+    radial-gradient(circle at 88% 25%, rgba(255,106,26,0.05), transparent 45%);
+}
+
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+::selection{background:var(--orange);color:#000;}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+.hl{font-weight:500;color:var(--white);}
+.accent{color:var(--orange);}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12.5px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  color:var(--orange);margin-bottom:14px;
+}
+.eyebrow::before{
+  content:"";width:26px;height:2px;background:var(--orange);
+  box-shadow:0 0 8px var(--orange-glow);
+}
+
+.section-title{
+  font-size:clamp(28px,4vw,42px);
+  font-weight:800;color:var(--white);letter-spacing:-.5px;margin-bottom:14px;
+}
+.section-sub{color:var(--gray);max-width:560px;font-size:15px;margin-bottom:48px;}
+.section-head{margin-bottom:8px;}
+
+section{position:relative;padding:110px 0;border-bottom:1px solid var(--border-soft);}
+
+/* grid overlay decoration */
+.grid-lines{
+  position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(circle at 50% 0%, black, transparent 70%);
+}
+
+/* ============ SCROLLBAR ============ */
+::-webkit-scrollbar{width:10px;height:10px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:var(--orange);}
+
+/* ============ NAV ============ */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--nav-h);
+  display:flex;align-items:center;
+  background:rgba(10,10,10,0.55);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s ease, background .3s ease;
+}
+header.scrolled{border-bottom-color:var(--border);background:rgba(10,10,10,0.88);}
+nav.wrap{display:flex;align-items:center;justify-content:space-between;width:100%;}
+
+.logo{
+  font-weight:800;font-size:20px;letter-spacing:.5px;color:var(--white);
+  display:flex;align-items:center;gap:10px;
+}
+.logo .dot{color:var(--orange);text-shadow:0 0 12px var(--orange-glow);}
+
+.nav-links{display:flex;gap:8px;align-items:center;}
+.nav-links a{
+  font-size:13.5px;font-weight:600;letter-spacing:.5px;color:var(--gray-light);
+  padding:10px 16px;border-radius:8px;transition:color .25s, background .25s;
+  position:relative;
+}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,0.04);}
+.nav-links a.cta{
+  color:#0a0a0a;background:var(--orange);margin-left:8px;
+  box-shadow:0 0 18px var(--orange-glow-soft);
+}
+.nav-links a.cta:hover{background:var(--orange-2);color:#000;}
+
+.burger{display:none;width:40px;height:40px;place-items:center;font-size:20px;color:var(--white);}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding-top:var(--nav-h);
+  border-bottom:1px solid var(--border-soft);
+  position:relative;overflow:hidden;
+}
+.hero .wrap{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--border);border-radius:999px;margin-top:20px;
+  padding:7px 16px;font-size:12px;font-weight:600;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--gray-light);margin-bottom:22px;
+}
+.hero-tag i{color:var(--orange);}
+.hero h1{
+  font-size:clamp(38px,6vw,64px);font-weight:800;color:var(--white);
+  line-height:1.05;letter-spacing:-1.5px;margin-bottom:20px;
+}
+.hero h1 span{
+  color:var(--orange);
+  text-shadow:0 0 30px var(--orange-glow);
+}
+.hero p.role{
+  font-size:clamp(16px,2vw,20px);font-weight:500;color:var(--gray-light);margin-bottom:18px;
+}
+.hero p.desc{max-width:520px;color:var(--gray);margin-bottom:34px;font-size:15.5px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 26px;border-radius:10px;font-weight:600;font-size:14px;
+  letter-spacing:.3px;transition:transform .25s, box-shadow .25s, background .25s, color .25s;
+}
+.btn-primary{background:var(--orange);color:#0a0a0a;box-shadow:0 0 24px var(--orange-glow-soft);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 30px var(--orange-glow);background:var(--orange-2);}
+.btn-outline{border:1px solid var(--border);color:var(--white);}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-3px);}
+
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;}
+.hero-photo-ring{
+  position:relative;width:340px;height:340px;border-radius:28px;
+  background:linear-gradient(155deg,var(--surface),var(--bg));
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 1px rgba(255,106,26,.08), 0 40px 80px -30px rgba(0,0,0,.8);
+}
+.hero-photo-ring::before{
+  content:"";position:absolute;inset:-1px;border-radius:28px;padding:1px;
+  background:linear-gradient(155deg,var(--orange),transparent 45%,transparent 70%,var(--orange));
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;opacity:.8;
+}
+.hero-photo-ring .avatar{
+  width:88%;height:88%;border-radius:22px;overflow:hidden;
+  background:linear-gradient(155deg,#1e1e1e,#0c0c0c);
+  display:flex;align-items:center;justify-content:center;
+  font-size:64px;font-weight:800;color:var(--orange);letter-spacing:-2px;
+}
+.hero-orbit-badge{
+  position:absolute;bottom:-18px;left:-18px;
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:14px 18px;display:flex;align-items:center;gap:12px;
+  box-shadow:0 20px 40px -20px rgba(0,0,0,.8);
+}
+.hero-orbit-badge i{color:var(--orange);font-size:20px;}
+.hero-orbit-badge b{display:block;color:var(--white);font-size:14px;font-weight:700;}
+.hero-orbit-badge span{font-size:11.5px;color:var(--gray);}
+
+.scroll-cue{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--gray);
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+}
+.scroll-cue .line{width:1px;height:34px;background:linear-gradient(var(--orange),transparent);animation:scrollpulse 1.8s ease infinite;}
+@keyframes scrollpulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* ============ CARDS GENERIC ============ */
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  transition:border-color .3s, transform .3s, box-shadow .3s;
+}
+.card:hover{border-color:rgba(255,106,26,.4);box-shadow:0 20px 50px -30px rgba(255,106,26,.25);}
+
+/* ============ FORMAÇÃO ACADÊMICA ============ */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.edu-card{padding:34px;position:relative;overflow:hidden;}
+.edu-card .badge-logo{
+  width:64px;height:64px;border-radius:16px;
+  background:var(--surface-2);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:20px;color:var(--orange);margin-bottom:22px;
+  box-shadow:inset 0 0 0 1px rgba(255,106,26,.08);
+}
+.edu-card h3{font-size:19px;font-weight:700;color:var(--white);margin-bottom:6px;}
+.edu-card .course{font-size:14px;font-weight:500;color:var(--orange);margin-bottom:14px;}
+.edu-card p.desc{font-size:14px;color:var(--gray);}
+.edu-card .period{
+  position:absolute;top:34px;right:34px;font-size:12px;font-weight:600;
+  color:var(--gray);letter-spacing:1px;border:1px solid var(--border);
+  padding:6px 12px;border-radius:999px;
+}
+
+/* ============ ARTIGOS - CARROSSEL ============ */
+.carousel-wrap{position:relative;}
+.carousel-track{
+  display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding-bottom:10px;scrollbar-width:none;
+}
+.carousel-track::-webkit-scrollbar{display:none;}
+.article-card{
+  flex:0 0 320px;scroll-snap-align:start;overflow:hidden;
+}
+.article-card .thumb{
+  height:180px;background:linear-gradient(135deg,var(--surface-2),#0c0c0c);
+  display:flex;align-items:center;justify-content:center;color:var(--border);
+  font-size:38px;border-bottom:1px solid var(--border);position:relative;
+}
+.article-card .thumb i{color:var(--border);font-size:36px;}
+.article-card .thumb .tag{
+  position:absolute;top:12px;left:12px;background:rgba(10,10,10,.75);
+  border:1px solid var(--border);color:var(--orange);font-size:10.5px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;padding:5px 10px;border-radius:999px;
+}
+.article-card .body{padding:22px;}
+.article-card h4{font-size:16px;font-weight:700;color:var(--white);margin-bottom:10px;}
+.article-card p{font-size:13.5px;color:var(--gray);margin-bottom:18px;}
+.article-card .read-link{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+  color:var(--orange);
+}
+.article-card .read-link i{transition:transform .25s;font-size:12px;}
+.article-card:hover .read-link i{transform:translateX(4px);}
+
+.carousel-controls{display:flex;gap:12px;justify-content:flex-end;margin:-14px 0 34px;}
+.arrow-btn{
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;color:var(--white);
+  transition:border-color .25s, color .25s, background .25s, transform .2s;
+}
+.arrow-btn:hover{border-color:var(--orange);color:var(--orange);background:rgba(255,106,26,.06);}
+.arrow-btn:active{transform:scale(.94);}
+.arrow-btn:disabled{opacity:.3;pointer-events:none;}
+
+/* ============ EXPERIÊNCIA / TIMELINE ============ */
+.timeline{position:relative;padding-top:10px;}
+.timeline::before{
+  content:"";position:absolute;left:24px;top:0;bottom:0;width:2px;
+  background:linear-gradient(var(--orange), rgba(255,106,26,.15) 85%, transparent);
+  box-shadow:0 0 14px var(--orange-glow);
+}
+.tl-item{position:relative;padding-left:70px;margin-bottom:52px;}
+.tl-item:last-child{margin-bottom:0;}
+.tl-node{
+  position:absolute;left:14px;top:4px;width:22px;height:22px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--orange);
+  box-shadow:0 0 0 6px rgba(255,106,26,.08), 0 0 16px var(--orange-glow);
+}
+.tl-node::after{
+  content:"";position:absolute;inset:4px;border-radius:50%;background:var(--orange);
+}
+.tl-card{padding:28px 28px 26px;}
+.tl-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;}
+.tl-company{display:flex;align-items:center;gap:14px;}
+.tl-logo{
+  width:50px;height:50px;flex:none;border-radius:12px;background:var(--surface-2);
+  border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:var(--orange);font-size:15px;
+}
+.tl-company h3{font-size:17px;font-weight:700;color:var(--white);}
+.tl-company .role{font-size:13.5px;font-weight:500;color:var(--orange);margin-top:2px;}
+.tl-period{
+  font-size:12px;font-weight:700;letter-spacing:1px;color:var(--gray);
+  border:1px solid var(--border);padding:6px 12px;border-radius:999px;white-space:nowrap;
+}
+.tl-desc{font-size:14px;color:var(--gray);margin-bottom:20px;}
+.tl-gallery{display:flex;gap:10px;flex-wrap:wrap;}
+.tl-thumb{
+  width:76px;height:76px;border-radius:10px;overflow:hidden;cursor:pointer;
+  border:1px solid var(--border);position:relative;
+}
+.tl-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s;}
+.tl-thumb:hover img{transform:scale(1.08);}
+.tl-thumb::after{
+  content:"\f00e";font-family:"Font Awesome 6 Free";font-weight:900;
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:#fff;background:rgba(0,0,0,0);opacity:0;font-size:14px;transition:all .25s;
+}
+.tl-thumb:hover::after{background:rgba(10,10,10,.55);opacity:1;}
+
+/* ============ HABILIDADES ============ */
+.skills-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;
+}
+.skill-card{
+  padding:20px;display:flex;align-items:center;gap:14px;position:relative;
+}
+.skill-icon{
+  width:44px;height:44px;flex:none;border-radius:10px;background:var(--surface-2);
+  border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+
+
+}
+.skill-icon img{width: 22px;px;height:22px;filter:grayscale(1) brightness(1.6);transition:filter .3s;}
+.skill-card:hover .skill-icon img{filter:none;}
+.skill-info h4{font-size:14px;font-weight:600;color:var(--white);}
+.skill-level{
+  display:inline-block;margin-top:5px;font-size:10.5px;font-weight:700;
+  letter-spacing:.5px;text-transform:uppercase;color:var(--orange);
+}
+
+.skill-icon-black{
+width:44px;height:44px;flex:none;border-radius:10px;background>var(--surface-2);
+border:1px solid var(--border); display:flex;align-items:center;justify-content:center;
+
+}
+.skill-icon-black img{width: 22px;px;height:22px;filter:invert(1) brightness(1.6);}
+.skill-card:hover .skill-icon img{filter:none;}
+.skill-icon-black i{font-size:19px;color:var(--gray-light);}
+.skill-level{
+  display:inline-block;margin-top:5px;font-size:10.5px;font-weight:700;
+  letter-spacing:.5px;text-transform:uppercase;color:var(--orange);
+}
+
+
+/* ============ CONTACT / FOOTER ============ */
+.contact-section{text-align:center;padding:120px 0;}
+.contact-section .section-title{margin-bottom:18px;}
+.contact-section p{max-width:480px;margin:0 auto 36px;color:var(--gray);}
+.contact-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+footer{padding:40px 0;text-align:center;}
+footer .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+footer .social{display:flex;gap:14px;}
+footer .social a{
+  width:40px;height:40px;border:1px solid var(--border);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--gray-light);
+  transition:.25s;
+}
+footer .social a:hover{color:var(--orange);border-color:var(--orange);}
+footer small{color:var(--gray);font-size:12.5px;}
+
+/* ============ LIGHTBOX ============ */
+.lightbox{
+  position:fixed;inset:0;background:rgba(6,6,6,.94);backdrop-filter:blur(6px);
+  z-index:3000;display:none;align-items:center;justify-content:center;padding:40px;
+}
+.lightbox.active{display:flex;}
+.lightbox img{max-width:min(900px,90vw);max-height:80vh;border-radius:12px;border:1px solid var(--border);box-shadow:0 30px 80px rgba(0,0,0,.6);}
+.lightbox-close, .lightbox-nav{
+  position:absolute;width:52px;height:52px;border-radius:50%;
+  background:rgba(20,20,20,.7);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;
+  transition:.25s;
+}
+.lightbox-close:hover, .lightbox-nav:hover{border-color:var(--orange);color:var(--orange);}
+.lightbox-close{top:26px;right:26px;}
+.lightbox-nav.prev{left:26px;top:50%;transform:translateY(-50%);}
+.lightbox-nav.next{right:26px;top:50%;transform:translateY(-50%);}
+.lightbox-caption{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  font-size:13px;color:var(--gray-light);letter-spacing:.5px;
+}
+
+/* ============ REVEAL ANIM ============ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:1fr;text-align:left;}
+  .hero-visual{order:-1;margin-bottom:10px;}
+  .hero-photo-ring{width:240px;height:240px;}
+  .edu-grid{grid-template-columns:1fr;}
+}
+
+@media (max-width:760px){
+  .nav-links{
+    position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;
+    background:rgba(8,8,8,.98);flex-direction:column;justify-content:flex-start;
+    padding:30px 24px;gap:6px;transform:translateX(100%);transition:transform .35s ease;
+  }
+  .nav-links.open{transform:translateX(0);}
+  .nav-links a{width:100%;padding:16px;font-size:15px;}
+  .nav-links a.cta{text-align:center;margin-left:0;margin-top:10px;}
+  .burger{display:grid;}
+  section{padding:74px 0;}
+  .tl-item{padding-left:56px;}
+  .timeline::before{left:18px;}
+  .tl-node{left:8px;}
+  .tl-top{flex-direction:column;}
+  .lightbox-nav{width:42px;height:42px;font-size:15px;}
+  .lightbox-nav.prev{left:10px;}
+  .lightbox-nav.next{right:10px;}
+  .lightbox-close{top:14px;right:14px;width:42px;height:42px;}
+  .contact-actions{flex-direction:column;align-items:stretch;}
+}
+
+@media (max-width:420px){
+  .hero-orbit-badge{left:0;bottom:-14px;padding:10px 14px;}
+  .article-card{flex:0 0 82vw;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important;}
+}
+</style>
+
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header id="siteHeader">
+  <nav class="wrap">
+    <a href="#top" class="logo">INÍCIO<span class="dot">.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#formacao">Formação</a></li>
+      <li><a href="#artigos">Artigos</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#contato" class="cta">Contato</a></li>
+    </ul>
+    <button class="burger" id="burgerBtn" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+</header>
+
+<!-- ============ HERO / SOBRE ============ -->
+<section class="hero" id="top">
+  <div class="grid-lines"></div>
+  <div class="wrap">
+    <div class="hero-text reveal in">
+      <span id="sobre"></span>
+      <div class="hero-tag"><i class="fa-solid fa-circle-dot"></i> Disponível para novos desafios!</div>
+      <h1>Marketing, Experiências e <span>Tecnologia</span></h1>
+      <p class="role">Analista de Marketing e Experiências Jr.</p>
+      <p class="desc"><strong> Transformo estratégias em resultados por meio do marketing.</strong> Desenvolvo ideias que conectam marcas ao público de forma relevante ao 
+        combinar planejamento, criatividade e análise de dados para gerar crescimento e fortalecer o posicionamento da marca.</p>
+      <div class="hero-actions">
+        <a href="wa.me/11962606455" class="btn btn-primary"><i class="fa-solid fa-briefcase"></i> Entrar em contato</a>
+        <a href="#experiencia" class="btn btn-outline"><i class="icon"></i> Ver experiências</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-photo-ring">
+        <div class="avatar">SN</div>
+      </div>
+      <div class="hero-orbit-badge">
+        <i class="fa-solid fa-headset"></i>
+        <div>
+          <b>+3 anos</b>
+          <span>Marketing & CX</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Rolar</span><div class="line"></div></div>
+</section>
+
+<!-- ============ FORMAÇÃO ACADÊMICA ============ -->
+<section id="formacao">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Formação Acadêmica</div>
+      <h2 class="section-title">Base que sustenta a prática</h2>
+      <p class="section-sub">Cada etapa da minha formação representou uma oportunidade de crescimento, permitindo a aplicação prática 
+        dos conhecimentos adquiridos e o desenvolvimento de competências essenciais para enfrentar desafios com responsabilidade.</p>
+    </div>
+
+    <div class="edu-grid">
+      <div class="card edu-card reveal">
+        <span class="period">2021 — 2023</span>
+        <div class="badge-logo">UNIP</div>
+        <h3>Universidade Paulista</h3>
+        <div class="course">Marketing</div>
+        <p class="desc">Formação voltada para o planejamento, gestão e execução de estratégias de marketing, com base em comportamento do consumidor, 
+        pesquisa de mercado, branding, comunicação integrada, marketing digital, gestão comercial e análise de indicadores. A graduação proporciona uma visão 
+        estratégica para identificar oportunidades, desenvolver ações orientadas ao mercado e contribuir para o crescimento sustentável das organizações.</p>
+      </div>
+
+      <div class="card edu-card reveal">
+        <span class="period">2025 — 2026</span>
+        <div class="badge-logo">MCK</div>
+        <h3>Universidade Presbiteriana Mackenzie</h3>
+        <div class="course">MBA em Gestão Estratégica de Marketing e Vendas</div>
+        <p class="desc">Especialização focada no desenvolvimento de competências estratégicas para integrar marketing e vendas, potencializando resultados de 
+        negócio. A formação colaborou para a aplicação do planejamento estratégico, inteligência de mercado, gestão de equipes comerciais, negociação, métricas de 
+        desempenho, funil de vendas, experiência do cliente e tomada de decisão baseada em dados em diferentes níveis corporativos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARTIGOS / ESTUDOS ============ -->
+<section id="artigos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Tópicos de Estudo & Artigos</div>
+      <h2 class="section-title">Últimas atualizações</h2>
+      <p class="section-sub">Artigos, estudos e reflexões sobre desenvolvimento, tecnologia e aprendizado contínuo. Um espaço onde compartilho 
+        conhecimentos, soluções para desafios do dia a dia e descobertas que fazem parte da minha evolução profissional.</p>
+    </div>
+
+    <div class="carousel-controls">
+      <button class="arrow-btn" id="prevArticle" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="arrow-btn" id="nextArticle" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <div class="carousel-wrap reveal">
+      <div class="carousel-track" id="articleTrack">
+
+        <article class="card article-card">
+          <div class="thumb"><span class="tag">Estudo</span><img src="https://i.imgur.com/WTmNVqN.png" alt="Título do artigo"></div>
+          <div class="body">
+            <h4>SPRITE: No universo wellness de bebidas da geração Z</h4>
+            <p>Uma análise de como um lançamento focado em bem-estar poderia reposicionar a marca, atrair 
+              novos consumidores e expandir sua relevância em um mercado guiado estilo de vida na geração.</p>
+            <a href="artigo_sprite_mackenzie.html" class="read-link">Ler artigo <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card article-card">
+          <div class="thumb"><span class="tag">Freelance</span><img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/c99f4c181379785.651b3a30ce0e7.jpg"></i></div>
+          <div class="body">
+            <h4>DJ NVTO: Brand Guidelines Book </h4>
+            <p>Este projeto propõe a criação de uma marca para um DJ contemporâneo, desenvolvida para refletir sua essência artística e fortalecer seu posicionamento no mercado.</p>
+            <a href="artigo-freelance-nvto.html" class="read-link">Ler artigo <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card article-card">
+          <div class="thumb"><span class="tag">Estudo</span><img src="https://media.licdn.com/dms/image/v2/D4D2DAQEractMY3B_Fg/profile-treasury-document-images_1280/B4DZdq65i.H4Ak-/1/1749845529361?e=1784160000&v=beta&t=HCdMHHr7tmcbPbzYA7gA92cdHJFc5xoXE30dFrkDR-8"></i></div>
+          <div class="body">
+            <h4>SOYA: Estratégia de posicionamento competitivo</h4>
+            <p>Este Estudo explora como a marca SOYA pode se diferenciar no mercado e conquistar uma posição única na mente dos consumidores. Aborda os principais elementos do posicionamento competitivo e construção de vantagem competitiva.</p>
+            <a href="artigo-soya-mackenzie.html" class="read-link">Ler artigo <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card article-card">
+          <div class="thumb"><span class="tag">Campanhas</span><img src="https://i.imgur.com/2h78qiU.jpeg"></i></div>
+          <div class="body">
+            <h4>Claranet Experience: Porsche Endurance Challenge 2024</h4>
+            <p>Uma campanha organizado pelo time de marketing da Claranet Brasil em 2024 em que clientes selecionados foram convidados para passar um dia no Autódromo de Interlagos, acompanhando a última etapa da Porsche Cup 2024.</p>
+            <a href="artigo-claranet-porshe-cup-2024.html" class="read-link">Ler artigo <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card article-card">
+          <div class="thumb"><span class="tag">Estudo</span><i class="fa-regular fa-image"></i></div>
+          <div class="body">
+            <h4>Título Estudos</h4>
+            <p>Cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum lorem ipsum.</p>
+            <a href="artigo.html" class="read-link">Ler artigo <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="card article-card">
+          <div class="thumb"><span class="tag">Artigo</span><i class="fa-regular fa-image"></i></div>
+          <div class="body">
+            <h4>Título Estudos</h4>
+            <p>Omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque.</p>
+            <a href="artigo.html" class="read-link">Ler artigo <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIÊNCIA PROFISSIONAL ============ -->
+<section id="experiencia">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Experiência Profissional</div>
+      <h2 class="section-title">Trajetória</h2>
+      <p class="section-sub">Ao longo da minha trajetória, participei de projetos que me permitiram desenvolver uma visão ampla do marketing.</p>
+    </div>
+
+    <div class="timeline" id="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="card tl-card">
+          <div class="tl-top">
+            <div class="tl-company">
+              <div class="tl-logo">KW</div>
+              <div>
+                <h3>Kiwify Pagamentos e Tecnologia</h3>
+                <div class="role">Analista de Experiência JR.</div>
+              </div>
+            </div>
+            <span class="tl-period">2025 — 2026</span>
+          </div>
+          <ul class="tl-desc"><strong>Carteira Executiva: Enterprise e Influênciadores VIPs</strong>
+        <ul class="tl-desc">• Coordenei o relacionamento com parceiros estratégicos para aumentar a qualidade e eficácia de entrega de materiais para a equipe de experiência;
+        <ul class="tl-desc">• Emissão e acompanhamento de pedidos de compra (curto, médio e longo prazo), garantindo cumprimento de prazos e níveis de serviço para experiências em eventos 
+          <strong>(Kiwify Dinner, Kiwify Scale, Kiwify Elite, Premiação Kiwify Dubai 10 milhões e Patrocínios)</strong>;
+        <ul class="tl-desc">•Lidernaça em projetos de redução de custos e aumento de eficiência operacional no setor de Experiência do Cliente;
+        <ul class="tl-desc">• Conduzi de processos de strategic sourcing, incluindo análise de mercado e definição de fornecedores estratégicos;
+        <ul class="tl-desc">• Desenvolvi novas experiências em projetos como: Formador (produtores iniciantes e formadores de opinião), Timing Gifts (momentos marcantes na 
+          vida de produtores e influênciadores) e Kiwivisita (visitas comerciais) para a fidelização contínua com a marca
+        <ul class="tl-desc">• Desenvolvi Press Kits para campanhas promocionais com produtores e influenciadores;
+        <ul class="tl-desc">• Apoio logístico ao time de Endomarketing para envio de premiações de campanhas internas;
+        <ul class="tl-desc">• Monitoramento de indicadores de qualidade e eficiência de parceiros estratégicos para o fornecimento de materiais e logística;
+        <ul class="tl-desc">• Implementação de layout e interface logística para materiais desenvolvidos em São Paulo;
+        <ul class="tl-desc">• Conduzi pesquisas de mercado para identificação de tendências, comportamentos de consumo e oportunidades de inovação em experiências;
+        <ul class="tl-desc">• Mapeamento da jornada do cliente (customer journey), identificando pontos de fricção e oportunidades de melhoria para reversão de churn da platafoma;
+        <ul class="tl-desc">• Identificação de oportunidades para aumento de engajamento em redes sociais e retenção de clientes;
+
+        </ul>
+          <div class="tl-gallery" data-gallery="kiwify">
+            <div class="tl-thumb"><img src="https://media.licdn.com/dms/image/v2/D4D2DAQHf6MBxbaXt5Q/profile-treasury-image-shrink_800_800/B4DZymb7CoHEAY-/0/1772318870266?e=1783832400&v=beta&t=w-mLf05pgIYiSXKI2snxLMCgesmeWqm-YhEuGdPXtds" alt="Kiwify - foto 1"></div>
+            <div class="tl-thumb"><img src="https://media.licdn.com/dms/image/v2/D4D2DAQGIlu6fAx1pjA/profile-treasury-image-shrink_800_800/B4DZymcbOHH4AY-/0/1772318996877?e=1783832400&v=beta&t=1m93NqZAEClm0mJyCuYKu4vGe09pJGiGGj-JzcU_FPI" alt="Kiwify - foto 2"></div>
+            <div class="tl-thumb"><img src="https://media.licdn.com/dms/image/v2/D4D2DAQGBhyZPKDUZeQ/profile-treasury-image-shrink_800_800/B4DZymcJF0HcAY-/0/1772318922371?e=1783832400&v=beta&t=qw3SEM7Xk-hzReIk60e2NhQw64cJkETL3V_Q9hO33lA" alt="Kiwify - foto 3"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="card tl-card">
+          <div class="tl-top">
+            <div class="tl-company">
+              <div class="tl-logo">CL</div>
+              <div>
+                <h3>Claranet Technology Brazil</h3>
+                <div class="role">Assistente de Marketing</div>
+              </div>
+            </div>
+            <span class="tl-period">2023 — 2025</span>
+          </div>
+          <p class="tl-desc"><ul class="tl-desc">• Atendimento receptivo Inbound e condução de leads qualificados, com foco em diagnóstico inicial do negócio e pré-venda consultiva;
+        <ul class="tl-desc">• Qualificação de leads através de análise de necessidades e perfil, conduzindo contato via telefone, e-mail, videoconferência, chat e outros canais digitais
+        <ul class="tl-desc">• Identificação de novas oportunidades comerciais, alinhando dores e objetivos dos leads aos produtos e serviços ofertados pela empresa;
+        <ul class="tl-desc">• Desenvolvi relatórios de performance para apoiar decisões estratégicas e metas comerciais
+        <ul class="tl-desc">• Planejei e executei eventos institucionais e promocionais voltados a clientes, prospects e parceiros
+        <ul class="tl-desc">• Desenvolvi materiais gráficos, apresentações e conteúdo institucional para canais online e físicos;
+        <ul class="tl-desc">• Produzi e-mails marketing segmentados para nutrição de leads, comunicação com clientes e campanhas internas
+        <ul class="tl-desc">• Produziconteúdos audiovisuais para redes sociais e campanhas digitais, alinhados ao posicionamento da marca.
+        <ul class="tl-desc">• Análise de performance de campanhas via CRM, auxiliando na identificação de oportunidades e melhorias em estratégias de geração de demanda.
+        <ul class="tl-desc">• Gestão de budget da área de marketing, otimizando recursos e garantindo alinhamento com o planejamento estratégico.
+        <ul class="tl-desc">• Gerenciei o calendário de marketing, controlando cronogramas, entregas e demandas da equipe e fornecedores.
+        <ul class="tl-desc">• Gestão de relacionamento com agências externas, supervisionando campanhas, criação de peças e entrega de demandas em tempo hábil.
+
+        </ul>
+      </p>
+          <div class="tl-gallery" data-gallery="claranet">
+            <div class="tl-thumb"><img src="https://media.licdn.com/dms/image/v2/D4D2DAQGXHJv29lOa7w/profile-treasury-image-shrink_800_800/B4DZyqV95WKQAY-/0/1772384413020?e=1783832400&v=beta&t=odiXVAsImbh-PwCZ09iedl2vpZ2zAz8gLJd4Owmvf6Q" alt="Claranet - Case Gravação Grêmio Futebol"></div>
+            <div class="tl-thumb"><img src="https://media.licdn.com/dms/image/v2/D4D2DAQFYf41gQCNC3Q/profile-treasury-image-shrink_800_800/B4DZymc74UIoAc-/0/1772319132066?e=1783832400&v=beta&t=qX9UXt9unVkIEzX9BiXZQ21NL4vbD8Whml_A46HIIwA" alt="Claranet - Gravação Conteúdo AWS Summit 2024"></div>
+            <div class="tl-thumb"><img src="https://media.licdn.com/dms/image/v2/D4D2DAQGH2EQJqKM8rA/profile-treasury-image-shrink_800_800/B4DZyqSUeWHIAc-/0/1772383459264?e=1783832400&v=beta&t=fe94cJdGLi60nYAAvNLr4WSMdBJKLvhNaFK9Tlt1v2Q" alt="Claranet - Divulgação AWS IA "></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="card tl-card">
+          <div class="tl-top">
+            <div class="tl-company">
+              <div class="tl-logo">AO</div>
+              <div>
+                <h3>Agência Orbi</h3>
+                <div class="role">Freelance Social Media</div>
+              </div>
+            </div>
+            <span class="tl-period">2023</span>
+          </div>
+          <ul class="tl-desc">• Planejamento e organização de calendários de conteúdo para redes sociais;
+          <ul class="tl-desc">• Criação de legendas e apoio na produção de conteúdos para Instagram, Facebook, LinkedIn e outras plataformas;
+          <ul class="tl-desc">• Monitoramento de comentários, mensagens e interação com a comunidade;
+          <ul class="tl-desc">• Pesquisa de tendências, referências e ideias para novos conteúdos;
+          <ul class="tl-desc">• Apoio na elaboração de roteiros para vídeos e Reels;
+          <ul class="tl-desc">• Acompanhamento de métricas e desempenho das publicações;
+          </ul>
+          <div class="tl-gallery" data-gallery="orbi">
+            <div class="tl-thumb"><img src="https://picsum.photos/seed/orbi1/300/300" alt="Agência Orbi - foto 1"></div>
+            <div class="tl-thumb"><img src="https://picsum.photos/seed/orbi2/300/300" alt="Agência Orbi - foto 2"></div>
+            <div class="tl-thumb"><img src="https://picsum.photos/seed/orbi3/300/300" alt="Agência Orbi - foto 3"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="card tl-card">
+          <div class="tl-top">
+            <div class="tl-company">
+              <div class="tl-logo">BS</div>
+              <div>
+                <h3>Agência BSGA</h3>
+                <div class="role">Freelance Social Media e Eventos</div>
+              </div>
+            </div>
+            <span class="tl-period">2023 — 2026</span>
+          </div>
+          <ul class="tl-desc">
+          <ul class="tl-desc">• Planejamento e organização de calendários de conteúdo para redes sociais;
+          <ul class="tl-desc">• Criação de legendas e apoio na produção de conteúdos para Instagram, Facebook, LinkedIn e outras plataformas;
+          <ul class="tl-desc">• Monitoramento de comentários, mensagens e interação com a comunidade;
+          <ul class="tl-desc">• Pesquisa de tendências, referências e ideias para novos conteúdos;
+          <ul class="tl-desc">• Apoio na elaboração de roteiros para vídeos e Reels;
+          <ul class="tl-desc">• Acompanhamento de métricas e desempenho das publicações;
+          <ul class="tl-desc">• Captar imagens e gravar conteúdos para campanhas institucionais e promocionais em eventos;
+          <ul class="tl-desc">• Planejar e criar conteúdos para redes sociais antes, durante e após eventos;
+          <ul class="tl-desc">• Gerenciamento do manuseio de materiais para campanhas de marketing de clientes (Atos e Harley Davidson)
+          </ul>
+          <div class="tl-gallery" data-gallery="bsga">
+            <div class="tl-thumb"><img src="https://picsum.photos/seed/bsga1/300/300" alt="BSGA - foto 1"></div>
+            <div class="tl-thumb"><img src="https://picsum.photos/seed/bsga2/300/300" alt="BSGA - foto 2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="card tl-card">
+          <div class="tl-top">
+            <div class="tl-company">
+              <div class="tl-logo">O-I</div>
+              <div>
+                <h3>Owens Illinois America South</h3>
+                <div class="role">Estagiário Administrativo</div>
+              </div>
+            </div>
+            <span class="tl-period">2022 — 2023</span>
+          </div>
+          <ul class="tl-desc"> • Responsável pela cobertura fotográfica de campanhas de endomarketing, com foco em valorização da cultura organizacional e 
+          registro de ações internas.
+        <ul class="tl-desc"> • Responsável criativo na organização e execução de eventos corporativos, integrando equipes da Qualidade, Setor Decorativo e CIPA, 
+          promovendo engajamento e alinhamento institucional.
+        <ul class="tl-desc"> • Gestão de compras e controle de suprimentos do setor de Qualidade, garantindo abastecimento e conformidade com padrões operacionais.
+        <ul class="tl-desc"> • Condução de auditorias internas de BPSA nos setores de Decorativo e Rotulagem, assegurando conformidade com procedimentos e normas estabelecidas.
+        <ul class="tl-desc"> •Responsável pelo direcionamento de treinamentos internos, incluindo capacitações para colaboradores e formação contínua de 
+          brigadistas, alinhados às normas de segurança e qualidade.
+
+            </ul>
+          <div class="tl-gallery" data-gallery="oi1">
+            <div class="tl-thumb"><img src="https://picsum.photos/seed/oi1a/300/300" alt="Owens Illinois - foto 1"></div>
+            <div class="tl-thumb"><img src="https://picsum.photos/seed/oi1b/300/300" alt="Owens Illinois - foto 2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="card tl-card">
+          <div class="tl-top">
+            <div class="tl-company">
+              <div class="tl-logo">O-I</div>
+              <div>
+                <h3>Owens Illinois America South</h3>
+                <div class="role">Jovem Aprendiz Administrativo</div>
+              </div>
+            </div>
+            <span class="tl-period">2021 — 2022</span>
+          </div>
+        
+          <ul class="tl-desc"> • Auxiliar de Produção, colaborando diretamente nas rotinas operacionais e garantindo o fluxo produtivo conforme padrões de qualidade e prazos estabelecidos.
+          <ul class="tl-desc"> • Suporte às áreas de Qualidade e Manutenção, auxiliando na gestão de compras e no controle de insumos e materiais necessários para a continuidade dos processos
+          <ul class="tl-desc"> • Gestão de compras e controle de suprimentos do setor de Qualidade, garantindo abastecimento e conformidade com padrões operacionais.
+          <ul class="tl-desc"> •  Responsável pela redação e padronização de processos produtivos do setor Decorativo, produzindo documentação técnica clara e objetiva para orientar a liderança e as equipes de trabalho.
+            </ul>
+          <div class="tl-gallery" data-gallery="oi2">
+            <div class="tl-thumb"><img src="https://picsum.photos/seed/oi2a/300/300" alt="Owens Illinois - foto 1"></div>
+            <div class="tl-thumb"><img src="https://picsum.photos/seed/oi2b/300/300" alt="Owens Illinois - foto 2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-node"></div>
+        <div class="card tl-card">
+          <div class="tl-top">
+            <div class="tl-company">
+              <div class="tl-logo">MC</div>
+              <div>
+                <h3>McDonald's</h3>
+                <div class="role">Atendente de Restaurante</div>
+              </div>
+            </div>
+            <span class="tl-period">2019</span>
+          </div>
+            <ul class="tl-desc">Tratou-se do meu primeiro emprego, com isso foram acrescentadas e descobertas habilidades e uma nova vocação a seguir dentro do mercado de trabalho.</ul>
+            <ul class="tl-desc"> • Atuação como atendente, na equipe de vendas. Foco em atendimento ao cliente e pós-vendas utilizando plataforma de captura de dados da empresa.
+            <ul class="tl-desc"> • Fidelização de clientes e upselling de produtos em lojas físicas na região de São Paulo</ul>
+          <div class="tl-gallery" data-gallery="mcd">
+            <div class="tl-thumb"><img src="" alt="McDonald's - foto 1"></div>
+            <div class="tl-thumb"><img src="" alt="McDonald's - foto 2"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ HABILIDADES ============ -->
+<section id="habilidades">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Habilidades & Competências</div>
+      <h2 class="section-title">Ferramentas</h2>
+      <p class="section-sub">Escolher as soluções adequadas faz toda a diferença para transformar ações de marketing em resultados consistentes e crescimento sustentável.</p>
+    </div>
+
+    <div class="skills-grid reveal">
+
+      <div class="card skill-card">
+        <div class="skill-icon-black"><img src="https://www.svgrepo.com/show/503426/microsoft-office.svg" alt="Pacote Office"></div>
+        <div class="skill-info"><h4>Pacote Office</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon-black"><img src="https://cdn-icons-png.flaticon.com/256/5968/5968572.png" alt="Photoshop"></div>
+        <div class="skill-info"><h4>Photoshop</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon-black"><img src="https://cdn-icons-png.flaticon.com/128/1/1759.png" alt="Illustrator"></div>
+        <div class="skill-info"><h4>Illustrator</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon-black"><img src="https://cdn-icons-png.flaticon.com/128/5968/5968575.png" alt="Premiere"></div>
+        <div class="skill-info"><h4>Premiere</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon"><img src="https://cdn.simpleicons.org/figma/f5f5f5" alt="Figma"></div>
+        <div class="skill-info"><h4>Figma</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon-black"><img src="https://www.svgrepo.com/show/504202/canva.svg" alt="Canva"></div>
+        <div class="skill-info"><h4>Canva</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon-black"><img src="https://www.svgrepo.com/show/452347/salesforce.svg" alt="Salesforce"></div>
+        <div class="skill-info"><h4>Salesforce</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon"><img src="https://cdn.simpleicons.org/hubspot/f5f5f5" alt="Hubspot"></div>
+        <div class="skill-info"><h4>Hubspot</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon"><img src="https://cdn.simpleicons.org/notion/f5f5f5" alt="Notion"></div>
+        <div class="skill-info"><h4>Notion</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="skill-info"><h4>RD Station</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon"><i class="fa-solid fa-vector-square"></i></div>
+        <div class="skill-info"><h4>UX/UI Design</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+        <div class="skill-info"><h4>Customer Success</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon"><i class="fa-solid fa-comments"></i></div>
+        <div class="skill-info"><h4>Customer Experience</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon"><img src="https://cdn.simpleicons.org/googleanalytics/f5f5f5" alt="Google Analytics 4"></div>
+        <div class="skill-info"><h4>Google Analytics 4</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon"><img src="https://cdn.simpleicons.org/meta/f5f5f5" alt="Meta Business Suite"></div>
+        <div class="skill-info"><h4>Meta Business Suite</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon"><img src="https://cdn.simpleicons.org/html5/f5f5f5" alt="HTML"></div>
+        <div class="skill-info"><h4>HTML</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon"><img src="https://cdn.simpleicons.org/css/f5f5f5" alt="CSS"></div>
+        <div class="skill-info"><h4>CSS</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon"><img src="https://cdn.simpleicons.org/javascript/f5f5f5" alt="JavaScript"></div>
+        <div class="skill-info"><h4>JavaScript</h4></div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="skill-icon"><img src="https://cdn.simpleicons.org/ClickUp/f5f5f5" alt="ClickUp"></div>
+        <div class="skill-info"><h4>ClickUp</h4></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section id="contato" class="contact-section">
+  <div class="grid-lines"></div>
+  <div class="wrap reveal">
+    <div class="eyebrow" style="justify-content:center;">Vamos conversar!</div>
+    <h2 class="section-title">Bora construir algo juntos?</h2>
+    <p> Clique no botão abaixo e entre em contato comigo!</p>
+    <div class="contact-actions">
+      <a href="mailto:opatricksanti@gmail.com" class="btn btn-primary"><i class="fa-regular fa-envelope"></i> Envie uma mensagem!</a>
+      <a href="www.linkedin.com/in/patricksanti/" class="btn btn-outline"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <small>© 2026 Patrick Santos Souza. Todos os direitos reservados.</small>
+    <div class="social">
+      <a href="www.linkedin.com/in/patricksanti/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="www.instagram.com/patrcksanti" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      
+      <a href="www.wa.me/11962606455" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lbClose" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+  <button class="lightbox-nav prev" id="lbPrev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+  <img src="" alt="" id="lbImage">
+  <button class="lightbox-nav next" id="lbNext" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
+  <div class="lightbox-caption" id="lbCaption"></div>
+</div>
+
+<script>
+/* ===== Header scroll state ===== */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* ===== Mobile menu ===== */
+const burger = document.getElementById('burgerBtn');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  burger.innerHTML = navLinks.classList.contains('open')
+    ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  burger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+}));
+
+/* ===== Reveal on scroll ===== */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => io.observe(el));
+
+/* ===== Articles carousel ===== */
+const track = document.getElementById('articleTrack');
+const prevBtn = document.getElementById('prevArticle');
+const nextBtn = document.getElementById('nextArticle');
+function scrollCarousel(dir){
+  const card = track.querySelector('.article-card');
+  const gap = 22;
+  const distance = (card ? card.offsetWidth : 300) + gap;
+  track.scrollBy({ left: dir * distance, behavior: 'smooth' });
+}
+prevBtn.addEventListener('click', () => scrollCarousel(-1));
+nextBtn.addEventListener('click', () => scrollCarousel(1));
+function updateArrows(){
+  prevBtn.disabled = track.scrollLeft <= 4;
+  nextBtn.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+}
+track.addEventListener('scroll', updateArrows);
+window.addEventListener('load', updateArrows);
+window.addEventListener('resize', updateArrows);
+
+/* ===== Lightbox gallery ===== */
+const lightbox = document.getElementById('lightbox');
+const lbImage = document.getElementById('lbImage');
+const lbCaption = document.getElementById('lbCaption');
+const lbClose = document.getElementById('lbClose');
+const lbPrev = document.getElementById('lbPrev');
+const lbNext = document.getElementById('lbNext');
+
+let currentGallery = [];
+let currentIndex = 0;
+
+function openLightbox(galleryImgs, index){
+  currentGallery = galleryImgs;
+  currentIndex = index;
+  renderLightbox();
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function renderLightbox(){
+  const imgEl = currentGallery[currentIndex];
+  lbImage.src = imgEl.src;
+  lbImage.alt = imgEl.alt;
+  lbCaption.textContent = `${imgEl.alt} — ${currentIndex + 1} / ${currentGallery.length}`;
+}
+function closeLightbox(){
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+lbClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+lbPrev.addEventListener('click', () => { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; renderLightbox(); });
+lbNext.addEventListener('click', () => { currentIndex = (currentIndex + 1) % currentGallery.length; renderLightbox(); });
+
+document.addEventListener('keydown', (e) => {
+  if (!lightbox.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') lbPrev.click();
+  if (e.key === 'ArrowRight') lbNext.click();
+});
+
+document.querySelectorAll('.tl-gallery').forEach(gallery => {
+  const imgs = Array.from(gallery.querySelectorAll('img'));
+  gallery.querySelectorAll('.tl-thumb').forEach((thumb, idx) => {
+    thumb.addEventListener('click', () => openLightbox(imgs, idx));
+  });
+});
+</script>
+
+</body>
+
+</html>
